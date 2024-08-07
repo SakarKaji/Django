@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Todo List</h1>
+<ul>
+    {% for  todo in todos  %} 
+    {% comment %} here we render different list items for every single in  entry our todos  which is a variable we can pass into this template(todos.html) {% endcomment %}
+    <li> 
+        {% comment %}then we can access attribute on this variable which is pytthon dictionary, we do that by using double  curly braces  {% endcomment %}
+        {% comment %}  anything you embed as a double curly braces here will be treated as a variable that yoiu are extrating or viewing as the actual value than HTML content{% endcomment %}
+        {% comment %} so whenever using variable use curly braces {% endcomment %}
+        {{ todo.title }}:{% if todo.completed %}Completed{% else %}Not Completed{% endif %}
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}
+
+{% comment %} after creating this template create view for rendering this template{% endcomment %}
